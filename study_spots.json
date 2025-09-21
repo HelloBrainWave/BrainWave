@@ -1,0 +1,12 @@
+[
+  {"name": "Wilmeth Active Learning Center (WALC)", "tags":["group","quiet","24h","outlets","central campus"], "lat":40.4250, "lng":-86.9215},
+  {"name": "Hicks Undergraduate Library", "tags":["quiet","individual","late night","outlets"], "lat":40.4237, "lng":-86.9212},
+  {"name": "Union Commons", "tags":["group","casual","coffee","comfortable seating"], "lat":40.4243, "lng":-86.9219},
+  {"name": "Engineering Library", "tags":["quiet","group","technical resources","outlets"], "lat":40.4257, "lng":-86.9225},
+  {"name": "Hansen Agricultural Library", "tags":["quiet","research","computer stations","outlets"], "lat":40.4301, "lng":-86.9241},
+  {"name": "PMU Study Lounges", "tags":["group","casual","coffee","central campus"], "lat":40.4231, "lng":-86.9228},
+  {"name": "Young Hall Study Rooms", "tags":["group","bookable rooms","whiteboards","central campus"], "lat":40.4263, "lng":-86.9234},
+  {"name": "Hillenbrand Hall Lounge", "tags":["quiet","individual","casual","computer stations"], "lat":40.4272, "lng":-86.9250},
+  {"name": "Lilly Hall Study Area", "tags":["quiet","individual","coffee","technical resources"], "lat":40.4280, "lng":-86.9260},
+  {"name": "Discovery Park Study Rooms", "tags":["group","quiet","research","technical resources","outlets"], "lat":40.4340, "lng":-86.9300}
+]
