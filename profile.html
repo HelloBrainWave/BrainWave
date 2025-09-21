@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Your Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📚 Purdue Study Planner</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</div>
+
+<div id="side-menu" class="side-menu hidden">
+  <a href="{{ url_for('questionnaire') }}">Edit Questionnaire</a>
+  <a href="{{ url_for('matches') }}">Find Matches</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="container card">
+  <h2>Your Profile</h2>
+  {% if user %}
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Year:</strong> {{ user.year }}</p>
+    <p><strong>Major:</strong> {{ user.major }}</p>
+    <p><strong>Classes:</strong> {{ user.classes }}</p>
+    <p><strong>Group size:</strong> {{ user.groupSize }}</p>
+    <p><strong>Comfort level:</strong> {{ user.comfortLevel }}</p>
+    <p><strong>Spaces:</strong> {{ user.spacePrefs }}</p>
+    <p><strong>Recommended:</strong> {{ user.recommended.spot if user.recommended else 'Pending' }}</p>
+    <a class="btn" href="{{ url_for('matches') }}">Find Matches</a>
+  {% else %}
+    <p>No profile found. Fill out the questionnaire.</p>
+    <a class="btn" href="{{ url_for('questionnaire') }}">Open Questionnaire</a>
+  {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Matches — Purdue Study Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📚 Purdue Study Planner</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</div>
+<div id="side-menu" class="side-menu hidden">
+  <a href="{{ url_for('profile') }}">Profile</a>
+  <a href="{{ url_for('questionnaire') }}">Questionnaire</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="container card">
+  <h2>Potential Matches</h2>
+
+  {% if candidates %}
+    <form method="POST" action="{{ url_for('select_match') }}">
+      {% for c in candidates %}
+        <div class="match-row">
+          <div>
+            <strong>{{ c.user.name }}</strong>
+            <p>Score: {{ c.score }} {% if c.distance_km %} • {{ '%.2f'|format(c.distance_km) }} km away{% endif %}</p>
+            <p>Spaces: {{ c.user.spacePrefs }}</p>
+          </div>
+          <div>
+            <button class="btn" name="chosen_email" value="{{ c.user.email }}">Match</button>
+          </div>
+        </div>
+      {% endfor %}
+    </form>
+  {% else %}
+    <p>No other users with questionnaire data yet — invite friends or fill more info.</p>
+  {% endif %}
+
+  <a class="btn" href="{{ url_for('map_view') }}">Go to Map</a>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

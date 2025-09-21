@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Purdue Study Planner — Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="site-container">
+    <nav class="topbar">
+      <div class="brand">📚 Purdue Study Planner</div>
+      <div><a class="btn" href="{{ url_for('auth') }}">Sign In / Sign Up</a></div>
+    </nav>
+
+    <main class="hero">
+      <h1>Find study spots & match with peers — fast</h1>
+      <p>Answer a quick questionnaire. We recommend a spot (OpenAI) and help you find study partners. Live map with distances & directions.</p>
+      <a class="cta" href="{{ url_for('auth') }}">Get Started</a>
+    </main>
+  </div>
+</body>
+</html>

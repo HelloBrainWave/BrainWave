@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Questionnaire</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📚 Purdue Study Planner</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+</div>
+
+<div id="side-menu" class="side-menu hidden">
+  <a href="{{ url_for('profile') }}">Profile</a>
+  <a href="{{ url_for('matches') }}">Matches</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="container card">
+  <h2>Tell us about your study preferences</h2>
+  <form method="POST" id="questionnaireForm">
+    <label>Name</label>
+    <input name="name" placeholder="Your name">
+
+    <label>Year</label>
+    <select name="year">
+      <option>Freshman</option><option>Sophomore</option><option>Junior</option><option>Senior</option><option>Graduate</option>
+    </select>
+
+    <label>Major</label>
+    <input name="major" placeholder="e.g., CS">
+
+    <label>Subjects / Classes</label>
+    <input name="classes" placeholder="e.g., CS 251, MATH 165">
+
+    <label>Desired Study Group Size</label>
+    <select name="groupSize">
+      <option value="Alone">Alone</option>
+      <option value="Small (2-4)">Small (2-4)</option>
+      <option value="Large (5+)">Large (5+)</option>
+    </select>
+
+    <label>Comfort Level</label>
+    <select name="comfortLevel">
+      <option>Quiet</option><option>Some Noise</option><option>Loud</option>
+    </select>
+
+    <label>Study Space Preferences (choose any)</label>
+    <div class="checkbox-grid">
+      <label><input type="checkbox" name="spacePrefs" value="Library"> Library</label>
+      <label><input type="checkbox" name="spacePrefs" value="Coffee Shop"> Coffee Shop</label>
+      <label><input type="checkbox" name="spacePrefs" value="Outdoors"> Outdoors</label>
+      <label><input type="checkbox" name="spacePrefs" value="Dorm"> Dorm</label>
+      <label><input type="checkbox" name="spacePrefs" value="Cafe"> Cafe</label>
+      <label><input type="checkbox" name="spacePrefs" value="Building Lobby"> Building Lobby</label>
+    </div>
+
+    <label>Travel Distance (walk minutes)</label>
+    <select name="travelDistance">
+      <option value="5">Less than 5</option>
+      <option value="10">5 - 10</option>
+      <option value="15">10 - 15</option>
+      <option value="20">More than 15</option>
+    </select>
+
+    <label>Ideal Study Times/Days</label>
+    <input name="studyTimes" placeholder="e.g., Weeknights 7-10pm">
+
+    <label>Personality Traits</label>
+    <input name="personality" placeholder="e.g., introvert">
+
+    <label>Study Goal</label>
+    <input name="goal" placeholder="e.g., exam prep">
+
+    <label>Short Bio</label>
+    <textarea name="bio" rows="3"></textarea>
+
+    <!-- Hidden fields for geolocation filled by JS -->
+    <input type="hidden" id="latitude" name="latitude">
+    <input type="hidden" id="longitude" name="longitude">
+
+    <div class="row">
+      <button type="submit" class="btn">Save & Get Recommendation</button>
+      <a href="{{ url_for('welcome') }}" class="link">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>getAndFillGeo();</script>
+</body>
+</html>
